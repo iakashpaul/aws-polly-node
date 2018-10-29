@@ -21,6 +21,7 @@ var speak = function(text) {
       var stream = fs.createWriteStream("./public/" + name);
       bufferStream.pipe(stream);
       stream.on("close", function(data) {
+        console.log("File written");
         return name;
       });
     }
