@@ -20,8 +20,11 @@ var speak = function(text) {
       bufferStream.end(res.AudioStream);
       var stream = fs.createWriteStream("./public/" + name);
       bufferStream.pipe(stream);
+      stream.on("close", function(data) {
+        return name;
+      });
     }
   });
-  return name;
+  //return name;
 };
 module.exports = { Speak: speak };
