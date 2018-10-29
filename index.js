@@ -5,6 +5,8 @@ var express = require("express");
 var app = express();
 var server = http.createServer(app).listen(port);
 var bodyParser = require("body-parser");
+var cors = require("cors");
+app.use(cors());
 
 app.use(bodyParser.json({ limit: "200mb" }));
 app.use(
