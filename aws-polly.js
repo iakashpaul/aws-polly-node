@@ -1,5 +1,4 @@
 var AWS = require("aws-sdk");
-var Speaker = require("speaker");
 var Stream = require("stream");
 var fs = require("fs");
 var Polly = new AWS.Polly({
@@ -7,14 +6,6 @@ var Polly = new AWS.Polly({
   accessKeyId: process.env.S3_KEY,
   secretAccessKey: process.env.S3_SECRET
 });
-
-var getPlayer = function() {
-  return new Speaker({
-    channels: 1,
-    bitDepth: 16,
-    sampleRate: 16000
-  });
-};
 
 var params = { OutputFormat: "mp3", VoiceId: "Aditi" };
 var speak = function(text) {
