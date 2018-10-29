@@ -4,3 +4,5 @@
 
 - Use this curl to check mp3 file creation in public folder
   `curl -v -XPOST -H "Content-type: application/json" -d '{"text":"Hello Akash"}' 'localhost:8000/polly'`
+
+curl -v -XPOST -H "Content-type: application/json" -d '{"text":"<speak> <emphasis>Hello</emphasis> world how are you? </speak>"}' 'https://aws-polly.herokuapp.com/polly'

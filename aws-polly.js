@@ -10,7 +10,8 @@ var Polly = new AWS.Polly({
 var params = { OutputFormat: "mp3", VoiceId: "Aditi" };
 var speak = function(text) {
   var name = "polly.mp3";
-  params.Text = ssml;
+  params.Text = text;
+  params.TextType = "ssml";
   Polly.synthesizeSpeech(params, function(err, res) {
     if (err) {
       console.log("err", err);
