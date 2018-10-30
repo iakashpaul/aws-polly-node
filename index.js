@@ -18,12 +18,18 @@ app.use(
 );
 app.use(express.static(__dirname + "/public"));
 
-server.listen(port, function() {
+server.listen(port, function () {
   console.log("Listening on port " + port + "...");
 });
 
-app.post("/polly", function(req, res) {
+app.post("/polly", function (req, res) {
   console.log(req.body);
   var fileName = Polly.Speak(req.body.text);
   res.send(fileName);
+});
+
+app.get("/polly", function (req, res) {
+  console.log("Somebody gonna GET a hurt real bad!");
+
+  res.send(200);
 });
