@@ -8,11 +8,11 @@ var Polly = new AWS.Polly({
 });
 
 var params = { OutputFormat: "mp3", VoiceId: "Aditi" };
-var speak = function(text) {
+var speak = function (text) {
   var name = "polly.mp3";
   params.Text = text;
   params.TextType = "ssml";
-  Polly.synthesizeSpeech(params, function(err, res) {
+  Polly.synthesizeSpeech(params, function (err, res) {
     if (err) {
       console.log("err", err);
     } else if (res && res.AudioStream instanceof Buffer) {
@@ -20,12 +20,12 @@ var speak = function(text) {
       bufferStream.end(res.AudioStream);
       var stream = fs.createWriteStream("./public/" + name);
       bufferStream.pipe(stream);
-      stream.on("close", function(data) {
+      stream.on("close", function (data) {
         console.log("File written");
-        return name;
+        // return name;
       });
     }
   });
-  //return name;
+  return name;
 };
 module.exports = { Speak: speak };
